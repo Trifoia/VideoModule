@@ -23,7 +23,6 @@
     <file src="..\Client\bin\Release\net6.0\Trifoia.VideoPlayer.Client.Oqtane.dll" target="lib\net6.0" /> 
     <file src="..\Client\bin\Release\net6.0\Trifoia.VideoPlayer.Client.Oqtane.pdb" target="lib\net6.0" />
 	  <file src="..\Client\bin\Release\net6.0\Blazored.Video.dll" target="lib\net6.0" />
-	  <file src="..\Server\wwwroot\**\*.*" target="wwwroot" /> 
     <file src="icon.png" target="" />
   </files>
 </package>
