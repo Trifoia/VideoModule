@@ -29,6 +29,7 @@
 
   <PropertyGroup>
     <!-- there may be other elements here -->
+	  <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
     <BlazorWebAssemblyEnableLinking>false</BlazorWebAssemblyEnableLinking>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
   </PropertyGroup>
