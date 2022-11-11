@@ -1,0 +1,59 @@
+@namespace Trifoia.VideoPlayer
+@inherits ModuleBase
+@inject ISettingService SettingService
+
+<div class="container">
+    <div class="row mb-1 align-items-center">
+        <Label Class="col-sm-3" For="value" HelpText="Url for the Video">Source: </Label>
+            <div class="col-sm-9">
+            <input id="value" type="text" class="form-control" @bind="@_source" />
+            </div>
+    </div>
+    <div class="row mb-1 align-items-center">
+        <Label Class="col-sm-3" For="value" HelpText="Type of Video" >type: </Label>
+            <div class="col-sm-9">
+            <input id="value" type="text" class="form-control" @bind="@_type" />
+            </div>
+    </div>
+
+</div>
+
+@code {
+    public override string Title => "VideoPlayer Settings";
+
+    private string _source;
+    private string _type;
+    private const string DefaultSource = "https://res.cloudinary.com/blazoredgitter/video/upload/v1557015491/samples/elephants.mp4";
+    private const string DefaultType = "video/mp4";
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+
+            Dictionary<string, string> settings = await SettingService.GetModuleSettingsAsync(ModuleState.ModuleId);
+            _source = SettingService.GetSetting(settings, "source", DefaultSource);
+            _type = SettingService.GetSetting(settings, "type", DefaultType);
+        }
+        catch (Exception ex)
+        {
+            ModuleInstance.AddModuleMessage(ex.Message, MessageType.Error);
+        }
+    }
+
+    public async Task UpdateSettings()
+    {
+        try
+        {
+            Dictionary<string, string> settings = await SettingService.GetModuleSettingsAsync(ModuleState.ModuleId);
+            SettingService.SetSetting(settings, "source", _source);
+            SettingService.SetSetting(settings, "type", _type);
+
+            await SettingService.UpdateModuleSettingsAsync(settings, ModuleState.ModuleId);
+        }
+        catch (Exception ex)
+        {
+            ModuleInstance.AddModuleMessage(ex.Message, MessageType.Error);
+        }
+    }
+}

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>Trifoia.VideoPlayer</id>
+    <version>1.0.0</version>
+    <authors>Trifoia</authors>
+    <owners>Trifoia</owners>
+    <title>VideoPlayer</title>
+    <description>VideoPlayer</description>
+    <copyright>Trifoia</copyright>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <license type="expression">MIT</license>
+    <projectUrl>https://github.com/oqtane/oqtane.framework</projectUrl>
+    <icon>icon.png</icon>
+    <tags>oqtane module</tags>
+    <releaseNotes></releaseNotes>
+    <summary></summary>
+    <dependencies>
+      <dependency id="Oqtane.Framework" version="3.2.1" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="..\Client\bin\Release\net6.0\Trifoia.VideoPlayer.Client.Oqtane.dll" target="lib\net6.0" /> 
+    <file src="..\Client\bin\Release\net6.0\Trifoia.VideoPlayer.Client.Oqtane.pdb" target="lib\net6.0" />
+	  <file src="..\Client\bin\Release\net6.0\Blazored.Video.dll" target="lib\net6.0" />
+	  <file src="..\Server\wwwroot\**\*.*" target="wwwroot" /> 
+    <file src="icon.png" target="" />
+  </files>
+</package>
